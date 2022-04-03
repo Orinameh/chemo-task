@@ -6,8 +6,8 @@ export const fetchAlbums = async (page, limit) => {
   return await response.json();
 };
 
-export const fetchPhotos = async (id) => {
-  const response = await fetch(`${url}/albums/${id}/photos`);
+export const fetchPhotos = async (id, page, limit) => {
+  const response = await fetch(`${url}/photos?albumId=${id}&_start=${page}&_limit=${limit}`);
   return await response.json();
 };
 

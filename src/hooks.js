@@ -1,7 +1,7 @@
 import {useState, useCallback, useEffect, useRef} from 'react'
-import { fetchAlbums, fetchUsers } from './api';
+import { fetchAlbums, fetchPhotos, fetchUsers } from './api';
 
-export const useFetchPhotos = (page = 0, limit = 10) => {
+export const useFetchAlbums = (page = 0, limit = 10) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -32,6 +32,34 @@ export const useFetchPhotos = (page = 0, limit = 10) => {
   useEffect(() => {
     getAlbums();
   }, [getAlbums]);
+
+  return {
+    data,
+    loading,
+    error
+  }
+}
+
+
+export const useFetchPhotos = (id, page = 0, limit = 10) => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const getPhotos = useCallback(async () => {
+        setLoading(true);
+        try {
+          const res = await fetchPhotos(id, page, limit);
+          setData(res);
+          setLoading(false);
+        } catch (error) {
+          setLoading(false);
+          setError(true);
+        }
+      }, [id, page, limit]);
+      useEffect(() => {
+        getPhotos();
+        
+      }, [getPhotos]);
 
   return {
     data,

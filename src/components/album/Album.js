@@ -30,7 +30,7 @@ export const Album = ({album}) => {
 
   return (
     <div data-testid="album">
-      <AlbumStyle role={"button"} tabIndex={0} href={`/albums/${album.id}`}>
+      <AlbumStyle role={"navigation"} tabIndex={0} href={`/albums/${album.id}/${album.title}/${album.user.username}`}>
         <img src={`https://via.placeholder.com/150/${colors[album.user.id-1]}`} loading="lazy" alt={`${album.title} icon by t-rex`} />
         <p data-testid="album-title">{album.title} <i>by</i> <strong>{album.user.username}</strong></p>
       </AlbumStyle>

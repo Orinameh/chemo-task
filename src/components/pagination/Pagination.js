@@ -53,7 +53,6 @@ export const Pagination = ({limit, setLimit, page, setPage}) => {
                 <option>10</option>
                 <option>20</option>
                 <option>30</option>
-
             </select>
         <div>
           <button disabled={page === 0} tabIndex={0} onClick={prev}>&#x2190;</button>&nbsp;

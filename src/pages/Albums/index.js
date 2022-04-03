@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Album } from "../../components/album/Album";
 import { Pagination } from "../../components/pagination/Pagination";
 import { Util } from "../../components/shared/Util";
-import { useFetchPhotos } from "../../hooks";
+import { useFetchAlbums } from "../../hooks";
 
 const Title = styled.h3`
   text-align: center;
@@ -24,10 +24,10 @@ function Albums() {
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(10);
 
-  const { data: albums, loading, error } = useFetchPhotos(page, limit);
+  const { data: albums, loading, error } = useFetchAlbums(page, limit);
 
   if (loading) {
-    return <Util testId="loading" text="Loading...." />;
+    return <Util testId="loading" text="Loading Albums...." />;
   }
 
   if (error) {
