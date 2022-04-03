@@ -7,7 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --focus-color: #ddd;
+}
+
+html, body {
+  line-height: 1.5;
+  font-size: 62.5%; /* helps us to use a rem value that will be a factor of 10px e.g 2rem is 20px*/
+}
+
+*, :after, :before {
+  box-sizing: border-box;  
 }
