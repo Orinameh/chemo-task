@@ -31,10 +31,16 @@ const PhotoStyle = styled.a`
   }
 `;
 
-export const Photo = ({ photo }) => {
- 
+export const Photo = ({ photo, setSelected }) => {
+
+    const onClick = e => {
+        if (e.key === "Enter" || e.type === "click") {
+            setSelected(photo);
+            return;
+        }
+    }
   return (
-    <PhotoStyle role={"button"} data-testid="photo" tabIndex={0} >
+    <PhotoStyle role={"button"} data-testid="photo" tabIndex={0} onClick={onClick} onKeyDown={onClick}  >
       <img src={photo.thumbnailUrl} alt={photo.title} loading="lazy" />
       <p data-testid="photo-title">{photo.title}</p>
     </PhotoStyle>

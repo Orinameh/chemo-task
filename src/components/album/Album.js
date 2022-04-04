@@ -28,10 +28,13 @@ const AlbumStyle = styled.a`
 
 export const Album = ({album}) => {
 
+  // helps to repeat the color in the array if album.user.id-1 is above 10
+  const colorId = album.user.id-1 > 10 ? album.user.id-1 % 10 : album.user.id-1;
+
   return (
     <div data-testid="album">
       <AlbumStyle role={"navigation"} tabIndex={0} href={`/albums/${album.id}/${album.title}/${album.user.username}`}>
-        <img src={`https://via.placeholder.com/150/${colors[album.user.id-1]}`} loading="lazy" alt={`${album.title} icon by t-rex`} />
+        <img src={`https://via.placeholder.com/150/${colors[colorId]}`} loading="lazy" alt={`${album.title} icon by t-rex`} />
         <p data-testid="album-title">{album.title} <i>by</i> <strong>{album.user.username}</strong></p>
       </AlbumStyle>
     </div>

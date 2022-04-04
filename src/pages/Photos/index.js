@@ -5,6 +5,7 @@ import { Photo } from "../../components/photo/Photo";
 import { Util } from "../../components/shared/Util";
 import { useFetchPhotos } from "../../hooks";
 import { Pagination } from "../../components/pagination/Pagination";
+import Modal from "../../components/modal/Modal";
 
 const Top = styled.div`
   display: flex;
@@ -44,6 +45,8 @@ function Photos() {
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(10);
 
+  const [selected, setSelected] = useState();
+
   const navigate = useNavigate();
   const goBack = (e) => {
     if (e.key === "Enter" || e.type === "click") {
@@ -61,7 +64,14 @@ function Photos() {
   if (error) {
     return <Util text="An error has occurred." />;
   }
-
+  
+  const onHide = e => {
+    if (e.key === "Enter" || e.type === "click") {
+        setSelected(undefined);
+        return;
+    }
+    
+  }
   return (
     <div data-testid="photos">
       <Top>
@@ -79,7 +89,7 @@ function Photos() {
       <SubTitle>by {owner}</SubTitle>
       <PhotoContainer>
         {photos?.map((photo) => (
-          <Photo key={photo.id} photo={photo} />
+          <Photo key={photo.id} photo={photo} setSelected={setSelected} />
         ))}
       </PhotoContainer>
       <Pagination
@@ -88,6 +98,14 @@ function Photos() {
         page={page}
         setPage={setPage}
       />
+
+      <Modal isShown={selected} hide={onHide}>
+        <img tabIndex={0} src={selected?.url} alt={selected?.title} loading="lazy" />
+        <p tabIndex={0}><b>Album Title:</b> {title}</p>
+        <p tabIndex={0}><b>Photo Owner:</b> {owner}</p>
+        <p tabIndex={0}><b>Photo title:</b> {selected?.title}</p>
+
+      </Modal>
     </div>
   );
 }
