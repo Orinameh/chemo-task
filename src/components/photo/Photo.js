@@ -11,16 +11,14 @@ const PhotoStyle = styled.a`
   flex-direction: column;
   transition: all 1s ease;
 
-
   img {
     width: 150px;
     border-radius: 10px;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &:hover {
-        zoom: 1.2;
-        transform: scale(1.5);
-        
+      zoom: 1.2;
+      transform: scale(1.5);
     }
   }
 
@@ -32,15 +30,20 @@ const PhotoStyle = styled.a`
 `;
 
 export const Photo = ({ photo, setSelected }) => {
-
-    const onClick = e => {
-        if (e.key === "Enter" || e.type === "click") {
-            setSelected(photo);
-            return;
-        }
+  const onClick = (e) => {
+    if (e.key === "Enter" || e.type === "click") {
+      setSelected(photo);
+      return;
     }
+  };
   return (
-    <PhotoStyle role={"button"} data-testid="photo" tabIndex={0} onClick={onClick} onKeyDown={onClick}  >
+    <PhotoStyle
+      role={"button"}
+      data-testid="photo"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={onClick}
+    >
       <img src={photo.thumbnailUrl} alt={photo.title} loading="lazy" />
       <p data-testid="photo-title">{photo.title}</p>
     </PhotoStyle>

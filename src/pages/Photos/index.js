@@ -64,14 +64,13 @@ function Photos() {
   if (error) {
     return <Util text="An error has occurred." />;
   }
-  
-  const onHide = e => {
+
+  const onHide = (e) => {
     if (e.key === "Enter" || e.type === "click") {
-        setSelected(undefined);
-        return;
+      setSelected(undefined);
+      return;
     }
-    
-  }
+  };
   return (
     <div data-testid="photos">
       <Top>
@@ -100,11 +99,21 @@ function Photos() {
       />
 
       <Modal isShown={selected} hide={onHide}>
-        <img tabIndex={0} src={selected?.url} alt={selected?.title} loading="lazy" />
-        <p tabIndex={0}><b>Album Title:</b> {title}</p>
-        <p tabIndex={0}><b>Photo Owner:</b> {owner}</p>
-        <p tabIndex={0}><b>Photo title:</b> {selected?.title}</p>
-
+        <img
+          tabIndex={0}
+          src={selected?.url}
+          alt={selected?.title}
+          loading="lazy"
+        />
+        <p tabIndex={0}>
+          <b>Album Title:</b> {title}
+        </p>
+        <p tabIndex={0}>
+          <b>Photo Owner:</b> {owner}
+        </p>
+        <p tabIndex={0}>
+          <b>Photo title:</b> {selected?.title}
+        </p>
       </Modal>
     </div>
   );
