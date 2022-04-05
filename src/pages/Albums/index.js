@@ -18,6 +18,7 @@ const AlbumContainer = styled.div`
   justify-content: space-between;
   margin: 5rem 3rem;
   gap: 3rem;
+
 `;
 
 function Albums() {

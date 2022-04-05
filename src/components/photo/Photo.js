@@ -27,6 +27,21 @@ const PhotoStyle = styled.a`
     font-weight: 400;
     text-align: center;
   }
+
+  @media screen and (max-width: 600px) {
+    --dimension: 350px;
+    width: var(--dimension);
+    height: var(--dimension);
+    margin-bottom: 10rem;
+
+    img {
+      width: var(--dimension);
+    }
+
+    p {
+      font-size: 2.5rem;
+    }
+  }
 `;
 
 export const Photo = ({ photo, setSelected }) => {

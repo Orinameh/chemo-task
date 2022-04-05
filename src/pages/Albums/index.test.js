@@ -17,13 +17,12 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 describe("index(Albums)", () => {
-    it("renders loading component", async () => {
-      render(<MockComponent />, { root: "concurrent" });
-
-      await waitForElementToBeRemoved(
-        () => screen.queryByText("Loading Albums...."),
-      );
-    });
+  it("renders loading component", async () => {
+    render(<MockComponent />, { root: "concurrent" });
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText("Loading Albums....")
+    );
+  });
   it("renders albums component", async () => {
     render(<MockComponent />, { root: "concurrent" });
     await waitFor(

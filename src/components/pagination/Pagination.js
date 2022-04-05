@@ -7,7 +7,7 @@ const PaginationContainer = styled.div`
   align-items: center;
   margin-right: 7rem;
   margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   gap: 3rem;
 
   > select {
@@ -31,6 +31,18 @@ const PaginationContainer = styled.div`
       &:disabled {
         cursor: not-allowed;
         opacity: 0.3;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    gap: 3rem;
+    > select {
+      font-size: 3rem;
+    }
+    > div {
+      > button {
+        font-size: 3rem;
       }
     }
   }

@@ -16,6 +16,10 @@ const ModalContainer = styled.div`
   margin: 5rem 40rem;
   border-radius: 5px;
   overflow: hidden;
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
+  }
 `;
 
 const ModalCloseIcon = styled.div`
@@ -43,9 +47,14 @@ const ModalCloseIcon = styled.div`
 const ModalContent = styled.div`
   padding: ${({noContentPadding}) => (noContentPadding ? 0 : '2rem')};
 
+  > img {
+      width: 100%;
+  }
+
   > p {
       font-size: 1.5rem;
   }
+ 
 `;
 
 const Modal = ({

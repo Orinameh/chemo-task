@@ -24,6 +24,26 @@ const AlbumStyle = styled.a`
         text-align: center;
         color: var(--black-color);
     }
+    
+    /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      --dimension: 300px;
+      width: var(--dimension);
+      height: var(--dimension);
+      margin-bottom: 10rem;
+  
+      img {
+          width: var(--dimension);
+          border-radius: 10px;
+      }
+  
+      p {
+          font-size: 2.5rem;
+          font-weight: 400;
+          text-align: center;
+          color: var(--black-color);
+      }
+    }
 `;
 
 export const Album = ({album}) => {

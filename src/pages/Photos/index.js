@@ -12,6 +12,9 @@ const Top = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-left: 8rem;
+  @media screen and (max-width: 600px) {
+    margin-left: 0;
+ }
 `;
 
 const BackButton = styled.a`
