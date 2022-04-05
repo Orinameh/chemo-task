@@ -14,7 +14,7 @@ const Top = styled.div`
   margin-left: 8rem;
   @media screen and (max-width: 600px) {
     margin-left: 0;
- }
+  }
 `;
 
 const BackButton = styled.a`
@@ -102,19 +102,14 @@ function Photos() {
       />
 
       <Modal isShown={selected} hide={onHide}>
-        <img
-          tabIndex={0}
-          src={selected?.url}
-          alt={selected?.title}
-          loading="lazy"
-        />
-        <p tabIndex={0}>
+        <img src={selected?.url} alt={selected?.title} loading="lazy" />
+        <p>
           <b>Album Title:</b> {title}
         </p>
-        <p tabIndex={0}>
+        <p>
           <b>Photo Owner:</b> {owner}
         </p>
-        <p tabIndex={0}>
+        <p>
           <b>Photo title:</b> {selected?.title}
         </p>
       </Modal>
