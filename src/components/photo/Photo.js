@@ -33,6 +33,7 @@ const PhotoStyle = styled.a`
     width: var(--dimension);
     height: var(--dimension);
     margin-bottom: 10rem;
+    margin-left: -2.5rem;
 
     img {
       width: var(--dimension);

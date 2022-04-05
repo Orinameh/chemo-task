@@ -9,6 +9,7 @@ const Title = styled.h3`
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
+  margin-top: 3rem;
 `;
 
 const AlbumContainer = styled.div`

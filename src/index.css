@@ -16,6 +16,7 @@ body {
 html, body {
   line-height: 1.5;
   font-size: 62.5%; /* helps us to use a rem value that will be a factor of 10px e.g 2rem is 20px*/
+  overflow-x: hidden;
 }
 
 *, :after, :before {
